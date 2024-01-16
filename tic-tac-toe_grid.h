@@ -16,6 +16,7 @@ private:
 	bool endGameCheck();
 
 public:
+	
 	Grid(int);
 	~Grid();
 	int launch();

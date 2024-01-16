@@ -2,6 +2,11 @@
 #include <algorithm>
 #include "tic-tac-toe_unit.h"
 
+TTTUnit::TTTUnit(Cell& cell)
+{
+	button = cell.button;
+}
+
 void TTTUnit::step(int i, int j)
 {
 	//static int turn = 0;
@@ -88,5 +93,17 @@ void TTTUnit::print()
 			std::cout << playing_field[i][j] << " ";
 		}
 		std::cout << "\n";
+	}
+}
+
+void TTTUnit::pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position) 
+{
+	if (event.type == sf::Event::MouseButtonPressed)
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			if (button.getGlobalBounds().contains(mouse_position.x, mouse_position.y))
+				std::cout << 2;
+		}
 	}
 }

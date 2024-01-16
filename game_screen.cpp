@@ -30,7 +30,8 @@ void launch_game_screen(sf::RenderWindow & window)
 		{
 			for (auto j : i)
 			{
-				window.draw(j);
+				j.pressed(window, event, mousePos1);
+				window.draw(j.get_sf_shape());
 			}
 		}
 
