@@ -2,23 +2,56 @@
 #include <algorithm>
 #include "tic-tac-toe_unit.h"
 
+TTTUnit::TTTUnit()
+{
+	float cellX = 100;
+	float cellY = 100;
+	float startX = 100;
+	float startY = 100;
+	for (int row = 0; row < 3; row++)
+	{
+		for (int col = 0; col < 3; col++)
+		{
+			Cell temp_cell(row, col,
+				Rect(sf::Vector2f(cellX, cellY),
+					startX * (col + 1) * 1.1,
+					startY * (row + 1) * 1.1,
+					sf::Color(255, 255, 255)));
+
+			cell_playing_field[row][col] = temp_cell;
+			std::cout << row << col << ' ';
+		}
+		std::cout << std::endl;
+	}
+}
+
 TTTUnit::TTTUnit(Cell& cell)
 {
 	button = cell.button;
 }
 
-void TTTUnit::step(int i, int j)
+bool TTTUnit::get_end_of_game()
+{
+	return end_of_game;
+}
+
+bool TTTUnit::step(int i, int j)
 {
 	//static int turn = 0;
 
-	i--;
-	j--;
+	//i--;
+	//j--;
 	if (!playing_field[i][j])
 	{
 		playing_field[i][j] = 1 - 2 * (turn % 2);
 		//check() was here;
 		turn++;
+		return true;
 		//std::cout << turn << "\n";
+	}
+	else
+	{
+		return false;
 	}
 }
 
@@ -57,9 +90,17 @@ void TTTUnit::check()
 
 void TTTUnit::resetVariables()
 {
-	for (int i = 0; i < 3; i++)
+	/*for (int i = 0; i < 3; i++)
 	{
 		playing_field[0][i] = playing_field[1][i] = playing_field[2][i] = 0;
+	}*/
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			playing_field[i][j] = 0;
+			cell_playing_field[i][j].set_color(sf::Color(255, 255, 255));
+		}
 	}
 	for (int i = 0; i < 8; i++)
 	{
@@ -67,21 +108,26 @@ void TTTUnit::resetVariables()
 	}
 	turn = 0;
 	end_of_game = 0;
-	
+
 }
 
-int TTTUnit::play()
+void TTTUnit::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
 {
-	resetVariables();
-	while (!end_of_game) {
+	//resetVariables();
+	//cell_pressed(window, event, mouse_position);
+
+	cell_pressed(window, event, mouse_position);
+	sumTriplet();
+	check();
+
+	/*while (!end_of_game) {
 		std::cin >> x;
 		std::cin >> y;
 		step(x, y);
 		print();
 		sumTriplet();
 		check();
-	}
-	return winner;
+	}*/
 }
 
 void TTTUnit::print()
@@ -96,14 +142,31 @@ void TTTUnit::print()
 	}
 }
 
-void TTTUnit::pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position) 
+void TTTUnit::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
 {
-	if (event.type == sf::Event::MouseButtonPressed)
+	std::pair<int, int> temp{};
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (cell_playing_field[i][j].pressed(window, event, mouse_position))
+			{
+				if (step(i, j))
+				{
+					cell_playing_field[i][j].set_color(sf::Color(0, 255 * ((turn + 1) % 2), 255 * (turn % 2)));
+				}
+			}
+			window.draw(cell_playing_field[i][j].get_sf_shape());
+		}
+	}
+
+	//delete this
+	/*if (event.type == sf::Event::MouseButtonPressed)
 	{
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (button.getGlobalBounds().contains(mouse_position.x, mouse_position.y))
 				std::cout << 2;
 		}
-	}
+	}*/
 }

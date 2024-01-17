@@ -11,19 +11,20 @@ int main(int argc, char* argv[])
 	int windowHeight = 640;
 	sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "SFML works!");
 
+	TTTUnit *unit = new TTTUnit();
 	
 	int i = 0;
 	while (window.isOpen())
 	{
 
-		launch_game_screen(window);
+		launch_game_screen(window, unit);
 	}
 
 
-	Grid a(1);
-	TTTUnit b;
+	//Grid a(1);
+	//TTTUnit b;
 	//int a[9][9];
-	std::cout << a.launch() << std::endl;
+	//std::cout << a.launch() << std::endl;
 
 	return 0;
 }

@@ -60,7 +60,7 @@ int Grid::launch()
 	if (layer == 1)
 	{
 		a = new TTTUnit();
-		return a->play();
+		//return a->play();
 	}
 	else if (layer >= 2)
 	{

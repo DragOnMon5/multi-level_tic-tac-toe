@@ -7,11 +7,13 @@
 
 class Cell : public Button
 {
-
+	int row;
+	int col;
 public:
 	Cell() = default;
 	Cell(const Cell&);
-	Cell(sf::RectangleShape );
+	Cell(int, int);
+	Cell(int, int, sf::RectangleShape );
 	sf::RectangleShape& get_sf_shape();
-	virtual void pressed(sf::RenderWindow&, sf::Event& , sf::Vector2i&);
+	virtual bool pressed(sf::RenderWindow&, sf::Event& , sf::Vector2i&);
 };

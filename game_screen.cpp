@@ -5,12 +5,14 @@
 #include "game_field.h"
 
 
-void launch_game_screen(sf::RenderWindow & window)
+void launch_game_screen(sf::RenderWindow & window, TTTUnit* unit)
 {
 	//TTTUnit* a = new TTTUnit();
-	TTTUnit a;
+	//TTTUnit a;
 	//std::array<std::array<sf::RectangleShape, 3>, 3> playing_field = get_playing_field(a);
-	std::shared_ptr<playing_field_size> playing_field = get_playing_field(a);
+	// 
+	//////std::shared_ptr<playing_field_size> playing_field = get_playing_field(unit);
+	// 
 	//sf::RectangleShape button = Rect(sf::Vector2f(200, 200), 200, 200, sf::Color(127,255,127));
 	//button.setPosition(200, 200);
 	//while (window.isOpen())
@@ -26,14 +28,24 @@ void launch_game_screen(sf::RenderWindow & window)
 		}
 
 		window.clear();
-		for (auto i : *playing_field)
+		
+		//unit->cell_pressed(window, event, mousePos1);
+		if (!unit->get_end_of_game())
 		{
-			for (auto j : i)
-			{
-				j.pressed(window, event, mousePos1);
-				window.draw(j.get_sf_shape());
-			}
+		unit->play(window, event, mousePos1);
 		}
+		else
+		{
+			unit->resetVariables();
+		}
+		/*for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				unit->cell_playing_field[i][j].pressed(window, event, mousePos1);
+				window.draw(unit->cell_playing_field[i][j].get_sf_shape());
+			}
+		}*/
 
 		window.display();
 	//}

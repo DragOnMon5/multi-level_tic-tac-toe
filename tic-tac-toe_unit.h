@@ -11,6 +11,7 @@
 class TTTUnit : public Cell
 {
 private:
+	
 	int playing_field[3][3]{};
 	int triplet_sum[8]{};
 	int turn = {};
@@ -20,17 +21,19 @@ private:
 	int winner{};
 
 public:
-	TTTUnit() = default;
+	std::array<std::array<Cell, 3>, 3> cell_playing_field;
+	TTTUnit();
 	TTTUnit(Cell&);
-	void step(int i, int j);
+	bool get_end_of_game();
+	bool step(int i, int j);
 	void sumTriplet();
 	void check();
 	void resetVariables();
-	int play();
+	void play(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
 	void print();
-	void pressed(sf::RenderWindow&, sf::Event&, sf::Vector2i&) override;
+	void cell_pressed(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
 
-	friend std::shared_ptr<std::array<std::array<TTTUnit, 3>, 3>> get_playing_field(TTTUnit&);
+	//friend std::shared_ptr<std::array<std::array<TTTUnit, 3>, 3>> get_playing_field(TTTUnit&);
 };
 
 //void qwe()

@@ -1,42 +1,4 @@
-﻿  cell.cpp
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\cell.cpp(30,74): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\cell.cpp(30,56): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-  tic-tac-toe_unit.cpp
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_unit.cpp(105,74): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_unit.cpp(105,56): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-  Создание кода...
+﻿  tic-tac-toe.cpp
   tic-tac-toe.vcxproj -> C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\tic-tac-toe.exe
   "pwsh.exe" не является внутренней или внешней
   командой, исполняемой программой или пакетным файлом.

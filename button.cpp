@@ -14,3 +14,8 @@ sf::Vector2f Button::get_position()
 {
 	return button.getPosition();
 }
+
+void Button::set_color(sf::Color color)
+{
+	button.setFillColor(color);
+}
