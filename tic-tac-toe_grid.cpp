@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "tic-tac-toe_unit.h"
 #include "tic-tac-toe_grid.h"
-
+void draw_objects(sf::RenderWindow& window, TTTUnit* unit);
 
 Grid::Grid(int layer)
 {
@@ -55,12 +55,13 @@ bool Grid::endGameCheck()
 	return 0;
 }
 
-int Grid::launch()
+int Grid::launch(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
 {
 	if (layer == 1)
 	{
 		a = new TTTUnit();
-		return a->play();
+		a->play(window, event, mouse_position);
+		return winner;
 	}
 	else if (layer >= 2)
 	{
@@ -70,7 +71,7 @@ int Grid::launch()
 			for (int j : {0, 1, 2})
 			{
 				b = new Grid(layer - 1);
-				playing_grid[i][j] = b->launch();
+				playing_grid[i][j] = b->launch(window, event, mouse_position);
 				delete b;
 				sumTriplet();
 				//check();

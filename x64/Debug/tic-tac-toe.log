@@ -1,7 +1,6 @@
-﻿  cell_button.cpp
-  game_screen.cpp
-  shapes.cpp
-  Создание кода...
+﻿  tic-tac-toe_unit.cpp
+C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_unit.cpp(16,13): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_unit.cpp(15,13): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
   tic-tac-toe.vcxproj -> C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\tic-tac-toe.exe
   "pwsh.exe" не является внутренней или внешней
   командой, исполняемой программой или пакетным файлом.

@@ -18,5 +18,5 @@ private:
 public:
 	Grid(int);
 	~Grid();
-	int launch();
+	int launch(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
 };
