@@ -7,8 +7,8 @@
 
 class Cell : public Button
 {
-	int row;
-	int col;
+	int row{};
+	int col{};
 public:
 	Cell() = default;
 	Cell(const Cell&);

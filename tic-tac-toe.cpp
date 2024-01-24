@@ -12,12 +12,12 @@ int main(int argc, char* argv[])
 	sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "SFML works!");
 
 	TTTUnit *unit = new TTTUnit();
-	
+	Grid* grid = new Grid(1);
 	int i = 0;
 	while (window.isOpen())
 	{
 
-		launch_game_screen(window, unit);
+		launch_game_screen(window, grid);
 	}
 
 

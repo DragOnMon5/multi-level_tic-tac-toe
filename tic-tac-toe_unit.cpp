@@ -4,18 +4,15 @@
 
 TTTUnit::TTTUnit()
 {
-	float cellX = 100;
-	float cellY = 100;
-	float startX = 100;
-	float startY = 100;
+
 	for (int row = 0; row < 3; row++)
 	{
 		for (int col = 0; col < 3; col++)
 		{
 			Cell temp_cell(row, col,
 				Rect(sf::Vector2f(cellX, cellY),
-					startX * (col + 1) * 1.1,
-					startY * (row + 1) * 1.1,
+					startX + cellX * col * 1.1,
+					startY + cellY * row * 1.1,
 					sf::Color(255, 255, 255)));
 
 			cell_playing_field[row][col] = temp_cell;
@@ -25,29 +22,24 @@ TTTUnit::TTTUnit()
 	}
 }
 
-TTTUnit::TTTUnit(Cell& cell)
-{
-	button = cell.button;
-}
 
 bool TTTUnit::get_end_of_game()
 {
 	return end_of_game;
 }
 
+int TTTUnit::get_winner()
+{
+	return winner;
+}
+
 bool TTTUnit::step(int i, int j)
 {
-	//static int turn = 0;
-
-	//i--;
-	//j--;
 	if (!playing_field[i][j])
 	{
 		playing_field[i][j] = 1 - 2 * (turn % 2);
-		//check() was here;
 		turn++;
 		return true;
-		//std::cout << turn << "\n";
 	}
 	else
 	{
@@ -55,7 +47,7 @@ bool TTTUnit::step(int i, int j)
 	}
 }
 
-void TTTUnit::sumTriplet()
+void TTTUnit::sum_triplet()
 {
 	for (int i = 0; i < 3; i++)
 	{
@@ -84,11 +76,17 @@ void TTTUnit::check()
 			end_of_game = 1;
 			return;
 		}
-
+	}
+	if (turn == 9)
+	{
+		std::cout << "DRAW\n";
+		winner = 3;
+		end_of_game = 1;
+		return;
 	}
 }
 
-void TTTUnit::resetVariables()
+void TTTUnit::reset_variables()
 {
 	/*for (int i = 0; i < 3; i++)
 	{
@@ -117,7 +115,7 @@ void TTTUnit::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mou
 	//cell_pressed(window, event, mouse_position);
 
 	cell_pressed(window, event, mouse_position);
-	sumTriplet();
+	sum_triplet();
 	check();
 
 	/*while (!end_of_game) {
