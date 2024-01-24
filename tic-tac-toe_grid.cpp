@@ -80,6 +80,18 @@ TTTUnit* Grid::get_unit()
 	return unit;
 }
 
+Grid* Grid::get_lower_level()
+{
+	if (layer >= 1)
+	{
+		return lower_level;
+	}
+	else
+	{
+		return this;
+	}
+}
+
 bool Grid::get_end_of_game()
 {
 	return end_of_game;
@@ -150,7 +162,7 @@ void Grid::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_
 	if (layer == 1)
 	{
 		unit->play(window, event, mouse_position);
-		
+
 		if (unit->get_end_of_game())
 		{
 			unit_game_started = false;
@@ -182,6 +194,15 @@ void Grid::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_
 		sumTriplet();
 		check();
 	}
+	/*else if (layer >= 2)
+	{
+		low_level = new Grid(layer - 1);
+		low_level->launch(window, event, mouse_position);
+		if (low_level->get_winner())
+		{
+
+		}
+	}*/
 
 	return;
 }

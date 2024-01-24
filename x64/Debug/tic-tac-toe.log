@@ -1,9 +1,10 @@
 ﻿  game_screen.cpp
+  tic-tac-toe.cpp
   tic-tac-toe_grid.cpp
 C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_grid.cpp(23,13): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_grid.cpp(22,13): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_grid.cpp(161,13): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_grid.cpp(160,13): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_grid.cpp(173,13): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_grid.cpp(172,13): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
   Создание кода...
   tic-tac-toe.vcxproj -> C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\tic-tac-toe.exe
   "pwsh.exe" не является внутренней или внешней

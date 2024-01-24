@@ -5,7 +5,7 @@ class Grid
 {
 private:
 
-	Grid* b;
+	Grid* lower_level;
 	// layer > 2 = i -> b(i-1)
 	// layer = 2 -> this.launch()
 	// layer = 1 -> a.play();
@@ -32,6 +32,7 @@ public:
 	Grid(int);
 	~Grid();
 	TTTUnit* get_unit();
+	Grid* get_lower_level();
 	bool get_end_of_game();
 	int get_winner();
 	//bool step(int, int);
