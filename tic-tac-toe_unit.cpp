@@ -4,7 +4,10 @@
 
 TTTUnit::TTTUnit()
 {
-
+	cellX = 100;
+	cellY = 100;
+	startX = 100;
+	startY = 100;
 	for (int row = 0; row < 3; row++)
 	{
 		for (int col = 0; col < 3; col++)
@@ -14,11 +17,8 @@ TTTUnit::TTTUnit()
 					startX + cellX * col * 1.1,
 					startY + cellY * row * 1.1,
 					sf::Color(255, 255, 255)));
-
 			cell_playing_field[row][col] = temp_cell;
-			std::cout << row << col << ' ';
 		}
-		std::cout << std::endl;
 	}
 }
 
@@ -65,14 +65,14 @@ void TTTUnit::check()
 		if (i == 3)
 		{
 			std::cout << "1 win\n";
-			winner = 1;
+			winner = static_cast<int>(Winner::first);
 			end_of_game = 1;
 			return;
 		}
 		if (i == -3)
 		{
 			std::cout << "2 win\n";
-			winner = 2;
+			winner = static_cast<int>(Winner::second);
 			end_of_game = 1;
 			return;
 		}
@@ -80,69 +80,21 @@ void TTTUnit::check()
 	if (turn == 9)
 	{
 		std::cout << "DRAW\n";
-		winner = 3;
+		winner = static_cast<int>(Winner::draw);
 		end_of_game = 1;
 		return;
 	}
 }
 
-void TTTUnit::reset_variables()
-{
-	/*for (int i = 0; i < 3; i++)
-	{
-		playing_field[0][i] = playing_field[1][i] = playing_field[2][i] = 0;
-	}*/
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			playing_field[i][j] = 0;
-			cell_playing_field[i][j].set_color(sf::Color(255, 255, 255));
-		}
-	}
-	for (int i = 0; i < 8; i++)
-	{
-		triplet_sum[i] = 0;
-	}
-	turn = 0;
-	end_of_game = 0;
-
-}
-
 void TTTUnit::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
 {
-	//resetVariables();
-	//cell_pressed(window, event, mouse_position);
-
 	cell_pressed(window, event, mouse_position);
 	sum_triplet();
 	check();
-
-	/*while (!end_of_game) {
-		std::cin >> x;
-		std::cin >> y;
-		step(x, y);
-		print();
-		sumTriplet();
-		check();
-	}*/
-}
-
-void TTTUnit::print()
-{
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			std::cout << playing_field[i][j] << " ";
-		}
-		std::cout << "\n";
-	}
 }
 
 void TTTUnit::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
 {
-	std::pair<int, int> temp{};
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
@@ -157,14 +109,4 @@ void TTTUnit::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vecto
 			window.draw(cell_playing_field[i][j].get_sf_shape());
 		}
 	}
-
-	//delete this
-	/*if (event.type == sf::Event::MouseButtonPressed)
-	{
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-		{
-			if (button.getGlobalBounds().contains(mouse_position.x, mouse_position.y))
-				std::cout << 2;
-		}
-	}*/
 }

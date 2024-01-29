@@ -4,16 +4,15 @@
 class Grid
 {
 private:
-
-	Grid* lower_level;
-	// layer > 2 = i -> b(i-1)
-	// layer = 2 -> this.launch()
-	// layer = 1 -> a.play();
-	float cellX = 150;
-	float cellY = 150;
+	float cellX{};
+	float cellY{};
 	float startX = 100;
 	float startY = 100;
+	int layer{};
 	int playing_grid[3][3]{};
+	std::array<std::array<TTTUnit*, 3>, 3> unit;
+	std::array<std::array<Grid*, 3>, 3> grid;
+	std::array<std::array<Cell, 3>, 3> cell_playing_grid;
 	int triplet_sum[8]{};
 	int winner{};
 	int turn{};
@@ -21,24 +20,17 @@ private:
 	int current_game_y{};
 	bool unit_game_started{ 0 };
 	bool end_of_game{ 0 };
-	int layer{};
 	void setMainLayer(int);
 	void sumTriplet();
-	bool endGameCheck();
-
+	void check();
+	void cell_pressed(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
+	void play(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
+	
 public:
-	std::array<std::array<Cell, 3>, 3> cell_playing_grid;
-	TTTUnit* unit;
 	Grid(int);
 	~Grid();
-	TTTUnit* get_unit();
-	Grid* get_lower_level();
 	bool get_end_of_game();
 	int get_winner();
-	//bool step(int, int);
-	void check();
-	void reset_variables();
-	void play(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
+	std::array<std::array<Cell, 3>, 3>& get_cell_playing_grid();
 	int launch(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
-	void cell_pressed(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
 };

@@ -137,7 +137,6 @@
   <ItemGroup>
     <ClCompile Include="button.cpp" />
     <ClCompile Include="cell.cpp" />
-    <ClCompile Include="game_field.cpp" />
     <ClCompile Include="game_screen.cpp" />
     <ClCompile Include="shapes.cpp" />
     <ClCompile Include="tic-tac-toe.cpp" />
@@ -147,7 +146,6 @@
   <ItemGroup>
     <ClInclude Include="button.h" />
     <ClInclude Include="cell.h" />
-    <ClInclude Include="game_field.h" />
     <ClInclude Include="game_screen.h" />
     <ClInclude Include="shapes.h" />
     <ClInclude Include="tic-tac-toe_grid.h" />

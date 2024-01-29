@@ -3,9 +3,7 @@
 
 class Button
 {
-protected:
-	
-	//
+
 public:
 	sf::RectangleShape button;
 	Button() = default;
