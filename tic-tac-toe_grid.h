@@ -15,7 +15,9 @@ private:
 	std::array<std::array<Cell, 3>, 3> cell_playing_grid;
 	int triplet_sum[8]{};
 	int winner{};
+	int winner_in_last_game{};
 	int turn{};
+	int filled_cells{};
 	int current_game_x{};
 	int current_game_y{};
 	bool unit_game_started{ 0 };
@@ -29,6 +31,7 @@ private:
 public:
 	Grid(int);
 	~Grid();
+	void set_first_in_game(int);
 	bool get_end_of_game();
 	int get_winner();
 	std::array<std::array<Cell, 3>, 3>& get_cell_playing_grid();

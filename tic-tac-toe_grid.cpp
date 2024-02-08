@@ -67,6 +67,15 @@ void Grid::sumTriplet()
 	triplet_sum[7] = playing_grid[2][0] + playing_grid[1][1] + playing_grid[0][2];
 }
 
+
+void Grid::set_first_in_game(int first)
+{
+	if (!turn)
+	{
+		turn = first;
+	}
+}
+
 bool Grid::get_end_of_game()
 {
 	return end_of_game;
@@ -103,7 +112,7 @@ void Grid::check()
 		}
 	}
 
-	if (turn == 9)
+	if (filled_cells == 9)
 	{
 		std::cout << "DRAW\n";
 		winner = static_cast<int>(Winner::draw);
@@ -116,6 +125,7 @@ void Grid::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_
 {
 	if (layer == 1)
 	{
+		unit[current_game_x][current_game_y]->set_first_in_game(winner_in_last_game);
 		unit[current_game_x][current_game_y]->play(window, event, mouse_position);
 
 		if (unit[current_game_x][current_game_y]->get_end_of_game())
@@ -147,6 +157,7 @@ void Grid::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_
 
 	if (layer >= 2)
 	{
+		grid[current_game_x][current_game_y]->set_first_in_game(winner_in_last_game);
 		grid[current_game_x][current_game_y]->launch(window, event, mouse_position);
 		if (grid[current_game_x][current_game_y]->get_end_of_game())
 		{
@@ -172,6 +183,7 @@ void Grid::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_
 			}
 
 			turn++;
+			filled_cells++;
 			cell_playing_grid[current_game_x][current_game_y] = temp_cell;
 		}
 	}
@@ -206,6 +218,20 @@ void Grid::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i
 				if (!playing_grid[i][j])
 				{
 					unit_game_started = 1;
+					if (layer = 1)
+					{
+						if (unit[current_game_x][current_game_y]->get_winner() != static_cast<int>(Winner::draw))
+						{
+							winner_in_last_game = unit[current_game_x][current_game_y]->get_winner();
+						}
+					}
+					else if (layer >= 2)
+					{
+						if (grid[current_game_x][current_game_y]->get_winner() != static_cast<int>(Winner::draw))
+						{
+							winner_in_last_game = grid[current_game_x][current_game_y]->get_winner();
+						}
+					}
 					current_game_x = i;
 					current_game_y = j;
 				}

@@ -22,6 +22,14 @@ TTTUnit::TTTUnit()
 	}
 }
 
+void TTTUnit::set_first_in_game(int first)
+{
+	if (!turn)
+	{
+		turn = first;
+	}
+}
+
 
 bool TTTUnit::get_end_of_game()
 {
@@ -39,6 +47,7 @@ bool TTTUnit::step(int i, int j)
 	{
 		playing_field[i][j] = 1 - 2 * (turn % 2);
 		turn++;
+		filled_cells++;
 		return true;
 	}
 	else
@@ -77,7 +86,7 @@ void TTTUnit::check()
 			return;
 		}
 	}
-	if (turn == 9)
+	if (filled_cells == 9)
 	{
 		std::cout << "DRAW\n";
 		winner = static_cast<int>(Winner::draw);

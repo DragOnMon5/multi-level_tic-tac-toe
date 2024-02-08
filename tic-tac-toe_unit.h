@@ -21,11 +21,13 @@ private:
 	std::array<std::array<Cell, 3>, 3> cell_playing_field;
 	int triplet_sum[8]{};
 	int turn {};
+	int filled_cells{};
 	bool end_of_game{};
 	int winner{};
 
 public:
 	TTTUnit();
+	void set_first_in_game(int);
 	bool get_end_of_game();
 	int get_winner();
 	bool step(int i, int j);
