@@ -12,9 +12,9 @@ int main(int argc, char* argv[])
 	int windowWidth = 800;
 	int windowHeight = 640;
 	sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "SFML works!");
-	//Grid* grid = new Grid(2);
+	//Grid* grid = new Grid(1);
 	
-	GridController* gridController = new GridController(2, window);
+	GridController* gridController = new GridController(1, window);
 
 	while (window.isOpen())
 	{

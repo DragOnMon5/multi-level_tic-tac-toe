@@ -1,20 +1,14 @@
-﻿  GridController.cpp
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridController.cpp(11,27): warning C4244: =: преобразование "int" в "_Ty", возможна потеря данных
+﻿  game_screen.cpp
+C:\Users\DragOnMon5\source\repos\tic-tac-toe\game_screen.cpp(60,77): warning C4244: аргумент: преобразование "unsigned int" в "T", возможна потеря данных
           with
           [
-              _Ty=float
+              T=float
           ]
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridController.cpp(12,27): warning C4244: =: преобразование "int" в "_Ty", возможна потеря данных
+C:\Users\DragOnMon5\source\repos\tic-tac-toe\game_screen.cpp(60,59): warning C4244: аргумент: преобразование "unsigned int" в "T", возможна потеря данных
           with
           [
-              _Ty=float
+              T=float
           ]
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridController.cpp(48,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridController.cpp(47,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridController.cpp(152,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridController.cpp(151,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridController.cpp(192,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridController.cpp(191,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
   tic-tac-toe.vcxproj -> C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\tic-tac-toe.exe
   "pwsh.exe" не является внутренней или внешней
   командой, исполняемой программой или пакетным файлом.

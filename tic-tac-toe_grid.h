@@ -27,8 +27,8 @@ private:
 	void setMainLayer(int);
 	void sumTriplet();
 	void check();
-	void cell_pressed(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
-	void play(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
+	void cell_pressed(sf::RenderWindow&, sf::Event&, sf::Vector2f&);
+	void play(sf::RenderWindow&, sf::Event&, sf::Vector2f&);
 
 public:
 	Grid(int);
@@ -37,5 +37,5 @@ public:
 	bool get_end_of_game();
 	int get_winner();
 	std::array<std::array<Cell, 3>, 3>& get_cell_playing_grid();
-	int launch(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
+	int launch(sf::RenderWindow&, sf::Event&, sf::Vector2f&);
 };

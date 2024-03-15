@@ -5,6 +5,6 @@
 class GridView
 {
 public:
-	//draw(cell);
+	void clear_window(sf::RenderWindow&, sf::Color);
 	void draw_cell(sf::RenderWindow&, Cell*);
 };

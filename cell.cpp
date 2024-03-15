@@ -58,7 +58,7 @@ void Cell::set_size(sf::Vector2f size)
 	button.setSize(size);
 }
 
-bool Cell::pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+bool Cell::pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2f& mouse_position)
 {
 	if (event.type == sf::Event::MouseButtonPressed)
 	{

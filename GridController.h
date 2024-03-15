@@ -12,13 +12,13 @@ class GridController //управление всем оркестром. —читываем ввод польовател€ и о
 	void set_current_layer(int);
 	void sum_triplet();
 	void check();
-	void cell_pressed(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
-	void play(sf::Event&, sf::Vector2i&);
+	void cell_pressed(sf::Event&, sf::Vector2f&);
+	void play(sf::Event&, sf::Vector2f&);
 public:
 	GridController(int, sf::RenderWindow&);
 	void set_first_in_game(int);
 	int get_winner();
 	bool get_end_of_game();
 	std::array<std::array<Cell,3>,3>& get_cell_playing_grid();
-	int launch(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
+	int launch(sf::Event&, sf::Vector2f&);
 };

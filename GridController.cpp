@@ -5,6 +5,7 @@
 GridController::GridController(int layer, sf::RenderWindow& main_window) :window(main_window)
 {
 	this->model = new GridModel();
+	this->view = new GridView();
 	set_current_layer(layer);
 
 	std::array<float, 4>& cell_values = model->get_cell_values();
@@ -128,7 +129,7 @@ std::array<std::array<Cell, 3>, 3>& GridController::get_cell_playing_grid()
 	return model->get_cell_playing_grid();
 }
 
-void GridController::play(sf::Event& event, sf::Vector2i& mouse_position)
+void GridController::play(sf::Event& event, sf::Vector2f& mouse_position)
 {
 	auto& units = model->get_units();
 	auto& model_data = model->get_model_data();
@@ -180,7 +181,7 @@ void GridController::play(sf::Event& event, sf::Vector2i& mouse_position)
 
 
 		grids[current_game_x][current_game_y]->set_first_in_game(model_data[winner_in_last_game]);
-		grids[current_game_x][current_game_y]->launch(window, event, mouse_position);
+		grids[current_game_x][current_game_y]->launch(event, mouse_position);
 		if (grids[current_game_x][current_game_y]->get_end_of_game())
 		{
 			model_data[unit_game_started] = false;
@@ -220,7 +221,7 @@ void GridController::play(sf::Event& event, sf::Vector2i& mouse_position)
 }
 
 //O_O
-void GridController::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+void GridController::cell_pressed(sf::Event& event, sf::Vector2f& mouse_position)
 {
 	auto& cell_playing_grid = model->get_cell_playing_grid();
 	auto& playing_grid = model->get_playing_grid();
@@ -229,7 +230,6 @@ void GridController::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf
 	auto& model_data = model->get_model_data();
 	int& current_game_x = model_data[Model_data::current_game_x];
 	int& current_game_y = model_data[Model_data::current_game_y];
-	//int& winner_in_last_game = model_data[Model_data::winner_in_last_game];
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
@@ -258,18 +258,18 @@ void GridController::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf
 				}
 			}
 
-			this->window.draw(cell_playing_grid[i][j].get_sf_shape());
-
+			//view->clear_window(window);
+			view->draw_cell(window, &cell_playing_grid[i][j]);
 		}
 	}
 }
 
-int GridController::launch(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+int GridController::launch(sf::Event& event, sf::Vector2f& mouse_position)
 {
 	int unit_game_started = (model->get_model_data())[Model_data::unit_game_started];
 	if (!unit_game_started)
 	{
-		cell_pressed(window, event, mouse_position);
+		cell_pressed(event, mouse_position);
 	}
 	else
 	{

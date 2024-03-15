@@ -4,12 +4,12 @@
 #include "game_screen.h"
 #include "GridController.h"
 
-void grid_play(GridController* gridController, sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+void grid_play(GridController* gridController, sf::RenderWindow& window, sf::Event& event, sf::Vector2f& mouse_position)
 {
 
 	if (!gridController->get_end_of_game())
 	{
-		gridController->launch(window, event, mouse_position);
+		gridController->launch(event, mouse_position);
 	}
 	else
 	{
@@ -23,7 +23,7 @@ void grid_play(GridController* gridController, sf::RenderWindow& window, sf::Eve
 	}
 }
 
-void grid_play(Grid* grid, sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+void grid_play(Grid* grid, sf::RenderWindow& window, sf::Event& event, sf::Vector2f& mouse_position)
 {
 	if (!grid->get_end_of_game())
 	{
@@ -47,18 +47,25 @@ void launch_game_screen(sf::RenderWindow& window, GridController* gridController
 {
 
 	sf::Vector2i mouse_position = sf::Mouse::getPosition(window);
-	//sf::Vector2f mouse_position = window.mapPixelToCoords(mousePos1);
+	sf::Vector2f worldPos = window.mapPixelToCoords(mouse_position);
 	sf::Event event;
+
 	while (window.pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
 			window.close();
-
+		if (event.type == sf::Event::Resized)
+		{
+			
+			sf::View view = sf::View(sf::FloatRect(0, 0, event.size.width, event.size.height));
+			//view.setRotation(45);
+			window.setView(view);
+		}
 	}
 
 	window.clear(sf::Color(25,25,25));
-	
-	grid_play(gridController, window, event, mouse_position);
+
+	grid_play(gridController, window, event, worldPos);
 
 	window.display();
 	
@@ -68,7 +75,7 @@ void launch_game_screen(sf::RenderWindow& window, Grid* grid)
 {
 
 	sf::Vector2i mouse_position = sf::Mouse::getPosition(window);
-	//sf::Vector2f mouse_position = window.mapPixelToCoords(mousePos1);
+	sf::Vector2f worldPos = window.mapPixelToCoords(mouse_position);
 	sf::Event event;
 	while (window.pollEvent(event))
 	{
@@ -79,7 +86,7 @@ void launch_game_screen(sf::RenderWindow& window, Grid* grid)
 
 	window.clear();
 
-	grid_play(grid, window, event, mouse_position);
+	grid_play(grid, window, event, worldPos);
 
 	window.display();
 

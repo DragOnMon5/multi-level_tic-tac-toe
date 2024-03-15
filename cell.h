@@ -19,5 +19,5 @@ public:
 	sf::Vector2f get_size();
 	void set_cell(Cell&);
 	void set_size(sf::Vector2f);
-	virtual bool pressed(sf::RenderWindow&, sf::Event& , sf::Vector2i&);
+	virtual bool pressed(sf::RenderWindow&, sf::Event& , sf::Vector2f&);
 };

@@ -95,14 +95,14 @@ void TTTUnit::check()
 	}
 }
 
-void TTTUnit::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+void TTTUnit::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2f& mouse_position)
 {
 	cell_pressed(window, event, mouse_position);
 	sum_triplet();
 	check();
 }
 
-void TTTUnit::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+void TTTUnit::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2f& mouse_position)
 {
 	for (int i = 0; i < 3; i++)
 	{

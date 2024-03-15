@@ -120,7 +120,7 @@ void Grid::check()
 	}
 }
 
-void Grid::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+void Grid::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2f& mouse_position)
 {
 	if (layer == 1)
 	{
@@ -192,7 +192,7 @@ void Grid::play(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_
 	return;
 }
 
-int Grid::launch(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+int Grid::launch(sf::RenderWindow& window, sf::Event& event, sf::Vector2f& mouse_position)
 {
 	if (!unit_game_started)
 	{
@@ -206,7 +206,7 @@ int Grid::launch(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse
 	return 0;
 }
 
-void Grid::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
+void Grid::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2f& mouse_position)
 {
 	for (int i = 0; i < 3; i++)
 	{

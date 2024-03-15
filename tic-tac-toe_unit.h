@@ -33,7 +33,7 @@ public:
 	bool step(int i, int j);
 	void sum_triplet();
 	void check();
-	void play(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
-	void cell_pressed(sf::RenderWindow&, sf::Event&, sf::Vector2i&);
+	void play(sf::RenderWindow&, sf::Event&, sf::Vector2f&);
+	void cell_pressed(sf::RenderWindow&, sf::Event&, sf::Vector2f&);
 };
 
