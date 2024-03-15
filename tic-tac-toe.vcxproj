@@ -138,6 +138,9 @@
     <ClCompile Include="button.cpp" />
     <ClCompile Include="cell.cpp" />
     <ClCompile Include="game_screen.cpp" />
+    <ClCompile Include="GridController.cpp" />
+    <ClCompile Include="GridModel.cpp" />
+    <ClCompile Include="GridView.cpp" />
     <ClCompile Include="shapes.cpp" />
     <ClCompile Include="tic-tac-toe.cpp" />
     <ClCompile Include="tic-tac-toe_unit.cpp" />
@@ -147,6 +150,9 @@
     <ClInclude Include="button.h" />
     <ClInclude Include="cell.h" />
     <ClInclude Include="game_screen.h" />
+    <ClInclude Include="GridController.h" />
+    <ClInclude Include="GridModel.h" />
+    <ClInclude Include="GridView.h" />
     <ClInclude Include="shapes.h" />
     <ClInclude Include="tic-tac-toe_grid.h" />
     <ClInclude Include="tic-tac-toe_unit.h" />

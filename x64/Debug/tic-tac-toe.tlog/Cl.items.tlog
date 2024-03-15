@@ -1,6 +1,9 @@
 C:\Users\DragOnMon5\source\repos\tic-tac-toe\button.cpp;C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\button.obj
 C:\Users\DragOnMon5\source\repos\tic-tac-toe\cell.cpp;C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\cell.obj
 C:\Users\DragOnMon5\source\repos\tic-tac-toe\game_screen.cpp;C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\game_screen.obj
+C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridController.cpp;C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\GridController.obj
+C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridModel.cpp;C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\GridModel.obj
+C:\Users\DragOnMon5\source\repos\tic-tac-toe\GridView.cpp;C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\GridView.obj
 C:\Users\DragOnMon5\source\repos\tic-tac-toe\shapes.cpp;C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\shapes.obj
 C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe.cpp;C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\tic-tac-toe.obj
 C:\Users\DragOnMon5\source\repos\tic-tac-toe\tic-tac-toe_unit.cpp;C:\Users\DragOnMon5\source\repos\tic-tac-toe\x64\Debug\tic-tac-toe_unit.obj

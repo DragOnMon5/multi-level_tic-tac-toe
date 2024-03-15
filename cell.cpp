@@ -32,6 +32,32 @@ sf::RectangleShape& Cell::get_sf_shape()
 	return button;
 }
 
+sf::Color Cell::get_color()
+{
+	return button.getFillColor();
+}
+
+sf::Vector2f Cell::get_size()
+{
+	return button.getSize();
+}
+
+
+void Cell::set_cell(Cell& cell)
+{
+	this->set_position(cell.get_position());
+	this->set_color(cell.get_color());
+	this->button.setSize(cell.button.getSize());
+	this->row = cell.row;
+	this->col = cell.col;
+	button = cell.button;
+}
+
+void Cell::set_size(sf::Vector2f size)
+{
+	button.setSize(size);
+}
+
 bool Cell::pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse_position)
 {
 	if (event.type == sf::Event::MouseButtonPressed)

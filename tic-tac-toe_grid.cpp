@@ -4,12 +4,11 @@
 #include "tic-tac-toe_unit.h"
 #include "tic-tac-toe_grid.h"
 
-
 Grid::Grid(int layer)
 {
 	setMainLayer(layer);
-	cellX = 100+layer*14;
-	cellY = 100+layer*14;
+	cellX = 100 + layer * 14;
+	cellY = 100 + layer * 14;
 	if (layer == 1)
 	{
 		for (int row = 0; row < 3; row++)
@@ -199,11 +198,11 @@ int Grid::launch(sf::RenderWindow& window, sf::Event& event, sf::Vector2i& mouse
 	{
 		cell_pressed(window, event, mouse_position);
 	}
-	else 
+	else
 	{
 		play(window, event, mouse_position);
 	}
-	
+
 	return 0;
 }
 
@@ -218,7 +217,7 @@ void Grid::cell_pressed(sf::RenderWindow& window, sf::Event& event, sf::Vector2i
 				if (!playing_grid[i][j])
 				{
 					unit_game_started = 1;
-					if (layer = 1)
+					if (layer == 1)
 					{
 						if (unit[current_game_x][current_game_y]->get_winner() != static_cast<int>(Winner::draw))
 						{
